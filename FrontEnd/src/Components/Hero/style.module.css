@@ -1,0 +1,26 @@
+.hero{
+    background-image: url("https://preview.colorlib.com/theme/shoppers/images/hero_1.jpg.webp");
+    height: 90vh;
+    width: 100%;
+    position: relative;
+    .overHero{
+        position: absolute;
+        right: 25%;
+        top: 30%;
+        h1{
+            font-size: 50px;
+        }
+        p{
+            font-size: 20px;
+        }
+        button{
+            background-color: #7971ea;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+    }
+}

@@ -1,12 +1,17 @@
 import React from 'react'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { response } from 'express';
 import { Navigate, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import styles from "./style.module.css"
+import { Helmet } from 'react-helmet';
+
  
 
   
 function AddPage() {
+   
+    
     const navigate = useNavigate();
     const formik = useFormik({
         initialValues: {
@@ -29,6 +34,7 @@ function AddPage() {
         onSubmit: (values)=>{
             axios.post("http://localhost:3000/features", values)
             .then((response)=>{
+                alert("Mehsulunuz elave edildi")
                 navigate("/")
             })
         }
@@ -36,61 +42,67 @@ function AddPage() {
       )
   return (
     
-    
+    <>
+    <Helmet>
+        <title>Add Page</title>
+    </Helmet>
     <form onSubmit={formik.handleSubmit}>
-         <label htmlFor="image">First Name</label>
+         <label htmlFor="image">Image</label>
        <input
          id="image"
          name="image"
          type="text"
          onChange={formik.handleChange}
          onBlur={formik.handleBlur}
-         value={formik.values.firstName}
+         value={formik.values.image}
        />
-       {formik.touched.firstName && formik.errors.firstName ? (
-         <div>{formik.errors.firstName}</div>
+       {formik.touched.image && formik.errors.image ? (
+         <div>{formik.errors.image}</div>
        ) : null}
-       <label htmlFor="title">First Name</label>
+       <label htmlFor="title">Title</label>
        <input
          id="title"
          name="title"
          type="text"
          onChange={formik.handleChange}
          onBlur={formik.handleBlur}
-         value={formik.values.firstName}
+         value={formik.values.title}
        />
-       {formik.touched.firstName && formik.errors.firstName ? (
-         <div>{formik.errors.firstName}</div>
+       {formik.touched.title && formik.errors.title ? (
+         <div>{formik.errors.title}</div>
        ) : null}
  
-       <label htmlFor="description">Last Name</label>
+       <label htmlFor="description">Description</label>
        <input
          id="description"
          name="description"
          type="text"
          onChange={formik.handleChange}
          onBlur={formik.handleBlur}
-         value={formik.values.lastName}
+         value={formik.values.description}
        />
-       {formik.touched.lastName && formik.errors.lastName ? (
-         <div>{formik.errors.lastName}</div>
+       {formik.touched.description && formik.errors.description ? (
+         <div>{formik.errors.description}</div>
        ) : null}
  
-       <label htmlFor="price">Email Address</label>
+       <label htmlFor="price">Price</label>
        <input
          id="price"
          name="price"
          type="number"
          onChange={formik.handleChange}
          onBlur={formik.handleBlur}
-         value={formik.values.email}
+         value={formik.values.price}
        />
-       {formik.touched.email && formik.errors.email ? (
-         <div>{formik.errors.email}</div>
+       {formik.touched.price && formik.errors.price ? (
+         <div>{formik.errors.price}</div>
        ) : null}
  
        <button type="submit">Submit</button>
      </form>
+    </>
+    
+    
    );
   
 }

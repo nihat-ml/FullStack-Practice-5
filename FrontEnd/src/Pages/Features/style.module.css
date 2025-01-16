@@ -1,0 +1,21 @@
+.container{
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+}
+.cards{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.card{
+    width: 346px;
+    text-align: center;
+    background-color: white;
+    margin: 40px 20px;
+    
+    
+}

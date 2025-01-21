@@ -8,15 +8,15 @@ export const FeaturesController = {
     },
     getById: async (req,res)=>{
         let id = req.params.id
-        let myfeatures = await FeaturesModel.findById()
+        let myfeatures = await FeaturesModel.findById(id)
         res.send({
             message:"Successfully finded",
-            data:myproduct
+            data:myfeatures
         })
     },
     deleteFeatures: async (req,res)=>{
-        let {id} = req.params
-        await FeaturesModel.findByIdAndDelete()
+        let id = req.params.id
+        await FeaturesModel.findByIdAndDelete(id)
         res.send({
             message:"Deleted Successfully"
         })
